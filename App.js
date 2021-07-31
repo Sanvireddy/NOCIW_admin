@@ -8,13 +8,14 @@
 
 import React, {Component} from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import Routes from './src/Routes';
+import Login from './src/pages/Loginpage';
+
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Login />
         <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
-        <Routes />
       </View>
     );
   }
