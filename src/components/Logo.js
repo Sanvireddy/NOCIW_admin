@@ -6,6 +6,7 @@ export default class Logo extends Component {
     return (
       <View style={styles.container}>
         <Image
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{width: 50, height: 80}}
           source={require('../img/images.png')}
         />
