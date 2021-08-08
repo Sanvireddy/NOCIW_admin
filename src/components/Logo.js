@@ -7,7 +7,7 @@ export default class Logo extends Component {
       <View style={styles.container}>
         <Image
           // eslint-disable-next-line react-native/no-inline-styles
-          style={{width: 50, height: 80}}
+          style={{width: 60, height: 80}}
           source={require('../img/images.png')}
         />
         <Text style={styles.logoText}>Welcome to NOCIW</Text>
