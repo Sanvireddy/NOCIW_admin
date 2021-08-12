@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import Login from './Loginpage';
 
-export default class Mainpage extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Login />
-        <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
-      </View>
-    );
-  }
-}
+const Mainpage = ({navigation}) => {
+  return (
+    <View style={styles.container}>
+      <Login navigation={navigation} />
+      <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -21,3 +19,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default Mainpage;

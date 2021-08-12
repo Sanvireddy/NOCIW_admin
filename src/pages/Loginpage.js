@@ -5,10 +5,11 @@ import Logo from '../components/Logo';
 
 export default class Login extends Component {
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.container}>
         <Logo />
-        <Form />
+        <Form navigation={navigation} />
       </View>
     );
   }

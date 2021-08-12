@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -6,14 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-const Name = "Nociw";
-const Password = "12345";
+const Name = 'Nociw';
+const Password = '12345';
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: "",
-      password: "",
+      userName: '',
+      password: '',
       userVerification: false,
     };
 
@@ -22,36 +23,39 @@ export default class Form extends Component {
     this.compareUser = this.compareUser.bind(this);
   }
   setName(name) {
-    this.setState({ userName: name })
+    this.setState({userName: name});
   }
   setPassword(pswd) {
-    this.setState({ password: pswd })
+    this.setState({password: pswd});
   }
   compareUser() {
-    console.log(Name,Password,this.state.userName,this.state.password)
-    if (this.state.userName === Name && this.state.password === Password)
-    {
-      this.setState({ userVerification: true })
-      alert("login successfully!")
+    console.log(
+      Name,
+      Password,
+      this.state.userName.userName,
+      this.state.password.password,
+    );
+    if (this.state.userName === Name && this.state.password === Password) {
+      this.setState({userVerification: true});
+      alert('login successfully!');
+    } else {
+      alert('wrong info');
     }
-    else {
-      alert("wrong info")
-    }
-      
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.container}>
         <TextInput
-          onChangeText={(userName) => this.setName({userName})}
+          onChangeText={userName => this.setName({userName})}
           style={styles.inputBox}
           underlinColorAndroid="rgba(0,0,0,0)"
           placeholder="UserName"
           placeholderTextColor="#ffffff"
         />
         <TextInput
-          onChangeText={(password)=>this.setPassword({password})}
+          onChangeText={password => this.setPassword({password})}
           style={styles.inputBox}
           secureTextEntry={true}
           underlinColorAndroid="rgba(0,0,0,0)"
@@ -59,7 +63,12 @@ export default class Form extends Component {
           placeholderTextColor="#ffffff"
         />
         <TouchableOpacity
-          onPress={() => this.compareUser()}
+          onPress={() => {
+            this.compareUser();
+            if (this.state.userVerification === false) {
+              navigation.navigate('Dashboard');
+            }
+          }}
           style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
