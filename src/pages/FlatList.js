@@ -25,8 +25,10 @@ const DATA = [
   },
 ];
 
-const Item = ({img, disable, setDisabled}) => (
-  <View style={styles.item}>
+const Item = ({img}) => {
+  
+  const [disable, setDisabled] = useState(true);
+  return(<View style={styles.item}>
     <Image style={{width: 350, height: 200}} source={img} />
     <View style={styles.buttons}>
       <TouchableOpacity
@@ -48,13 +50,13 @@ const Item = ({img, disable, setDisabled}) => (
       </TouchableOpacity>
     </View>
   </View>
-);
+  );
+};
 
 const Flatlist = () => {
-  const [disable, setDisabled] = useState(true);
 
   const renderItem = ({item}) => (
-    <Item img={item.img} disable={disable} setDisabled={() => setDisabled} />
+    <Item img={item.img} />
   );
 
   return (
